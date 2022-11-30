@@ -176,7 +176,7 @@ function getSizeLabel(changedLines, sizes = defaultSizes) {
   let label = null;
   for (const lines of Object.keys(sizes).sort((a, b) => a - b)) {
     if (changedLines >= lines) {
-      label = `size/${sizes[lines]}`;
+      label = `Size: ${sizes[lines]}`;
     }
   }
   return label;
@@ -187,7 +187,7 @@ function getLabelChanges(newLabel, existingLabels) {
   const remove = [];
   for (const existingLabel of existingLabels) {
     const { name } = existingLabel;
-    if (name.startsWith("size/")) {
+    if (name.startsWith("Size: ")) {
       if (name === newLabel) {
         add.pop();
       } else {
